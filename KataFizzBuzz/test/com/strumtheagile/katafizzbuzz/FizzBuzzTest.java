@@ -1,5 +1,7 @@
 package com.strumtheagile.katafizzbuzz;
 
+import java.util.Arrays;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -8,38 +10,46 @@ public class FizzBuzzTest {
 	
 	@Test
 	public void fizz_buzz_for_first() {
-		FizzBuzz fizzBuzz = new FizzBuzz();
+		FizzBuzz fizzBuzz = new FizzBuzz(1);
 		
-		String result = fizzBuzz.atTime(1);
+		String[] result = fizzBuzz.sayIt();
 		
-		Assert.assertEquals("1", result);
+		String[] expected = new String[] {"1"};
+		Assert.assertTrue(Arrays.equals(expected, result));
+
 	}
+
 	
 	@Test
-	public void fizz_buzz_for_second() {
-		FizzBuzz fizzBuzz = new FizzBuzz();
+	public void fizz_buzz_till_twenty() {
+		FizzBuzz fizzBuzz = new FizzBuzz(20);
 		
-		String result = fizzBuzz.atTime(2);
+		String[] expected = new String[] {
+		"1",
+		"2",
+		"Fizz",
+		"4",
+		"Buzz",
+		"Fizz",
+		"7",
+		"8",
+		"Fizz",
+		"Buzz",
+		"11",
+		"Fizz",
+		"Fizz",
+		"14",
+		"FizzBuzz",
+		"16",
+		"17",
+		"Fizz",
+		"19",
+		"Buzz"};
 		
-		Assert.assertEquals("2", result);
-	}
-	
-	@Test
-	public void fizz_buzz_for_third() {
-		FizzBuzz fizzBuzz = new FizzBuzz();
+		String[] result = fizzBuzz.sayIt();
 		
-		String result = fizzBuzz.atTime(3);
-		
-		Assert.assertEquals("Fizz", result);
-	}
-	
-	@Test
-	public void fizz_buzz_for_fifth() {
-		FizzBuzz fizzBuzz = new FizzBuzz();
-		
-		String result = fizzBuzz.atTime(5);
-		
-		Assert.assertEquals("Buzz", result);
+		Assert.assertTrue(Arrays.equals(expected, result));
+
 	}
 
 }
